@@ -1,0 +1,27 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ujian Akhir</title>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1>Ujian Akhir</h1>
+      <p>
+        Kita akan menghitung hasil Ujian akhir dari Siswa <br />Tugas Harian 30%
+        UTS 40% UAS 30%
+      </p>
+      <p>Ujian Akmal Memiliki Nilai dengan Rata Rata</p>
+      <p id="hasilUjian"></p>
+    </div>
+  </body>
+  <script>
+    let tugas = 30;
+    let uas = 50;
+    let uts = 50;
+    let hasilAkhir;
+    let rataRata = 0.3 * tugas + 0.3 * uas + 0.4 * uts;
+
+    document.getElementById("hasilUjian").textContent = rataRata;
+  </script>
+</html>

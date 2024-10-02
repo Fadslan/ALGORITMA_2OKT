@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pendaftaran PPDB</title>
+    <style>
+      .pilihJalur {
+        display: none;
+      }
+      .pilihJenjang {
+        display: none;
+      }
+      .pilihSekolah {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1>Pendaftaran Peserta Didik Baru</h1>
+      <form id="formPendaftaran">
+        <label for="nomorPeserta">Nomor Peserta:</label>
+        <input type="text" id="nomorPeserta" name="nomorPeserta" required />
+        <br />
+        <br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <br /><br />
+        <button type="submit">Login</button>
+      </form>
+      <p id="textHasil"></p>
+    </div>
+
+    <div class="pilihJenjang" style="text-align: center">
+      <h1 id="title" x>Pilih Jenjang!</h1>
+      <div>
+        <button id="SMK">SMK</button>
+        <button id="SMA">SMA</button>
+      </div>
+    </div>
+
+    <div class="pilihJalur" style="text-align: center">
+      <h1 id="title" x>Pilih Jalur!</h1>
+      <div>
+        <button id="afirmasi">AFIRMASI</button>
+        <button id="prestasi">PRESTASI</button>
+        <button id="zonasi">ZONASI</button>
+      </div>
+      <!-- <div>
+        <form action="">
+          <select name="" id="">
+            <option value="">Afirmasi</option>
+            <option value="">Prestasi</option>
+            <option value="">Zonasi</option>
+          </select>
+        </form>
+      </div> -->
+    </div>
+
+    <div class="pilihSekolah" style="text-align: center">
+      <h1 id="title" x>Pilih Sekolah!</h1>
+      <form action="">
+        <select name="" id="pilihSekolah"></select
+        ><br /><br />
+        <button id="submitAkhir">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("formPendaftaran");
+      const pilihJalurDiv = document.querySelector(".pilihJalur");
+      const pilihSekolahDiv = document.querySelector(".pilihSekolah");
+      const pilihJenjangDiv = document.querySelector(".pilihJenjang");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const nomorPeserta = document.getElementById("nomorPeserta").value;
+        const password = document.getElementById("password").value;
+
+        if (nomorPeserta === "" || password === "") {
+          alert("Nomor peserta dan password harus diisi");
+        } else {
+          if (nomorPeserta === "12345" && password === "password") {
+            alert("Login berhasil");
+            pilihJenjangDiv.style.display = "block";
+          } else {
+            alert("Login gagal");
+          }
+        }
+      });
+    </script>
+    <script>
+      const smkButton = document.getElementById("SMK");
+      const smaButton = document.getElementById("SMA");
+
+      smkButton.addEventListener("click", () => {
+        alert("Tombol SMK diklik");
+        pilihJenjangDiv.style.display = "none";
+        pilihJalurDiv.style.display = "block";
+      });
+      smaButton.addEventListener("click", () => {
+        alert("Tombol SMA diklik");
+        pilihJenjangDiv.style.display = "none";
+        pilihJalurDiv.style.display = "block";
+      });
+    </script>
+    <script>
+      const afirmasi = document.getElementById("afirmasi");
+      const prestasi = document.getElementById("prestasi");
+      const zonasi = document.getElementById("zonasi");
+
+      afirmasi.addEventListener("click", () => {
+        alert("Tombol Afirmasi diklik");
+        pilihSekolahDiv.style.display = "block";
+        pilihJalurDiv.style.display = "none";
+      });
+      prestasi.addEventListener("click", () => {
+        alert("Tombol Prestasi diklik");
+        pilihSekolahDiv.style.display = "block";
+        pilihJalurDiv.style.display = "none";
+      });
+      zonasi.addEventListener("click", () => {
+        alert("Tombol Zonasi diklik");
+        pilihSekolahDiv.style.display = "block";
+        pilihJalurDiv.style.display = "none";
+      });
+    </script>
+    <script>
+      const submitAkhir = document.getElementById("submitAkhir");
+      submitAkhir.addEventListener("click", (event) => {
+        alert("Selesai Submit! Mohon menunggu Hasil");
+        document.getElementById("textHasil").textContent =
+          "Berhasil! Mohon tunggu Pengumuman";
+      });
+    </script>
+    <script>
+      // Ambil elemen <select> berdasarkan id
+      const selectSekolah = document.getElementById("pilihSekolah");
+
+      // Daftar sekolah yang akan ditambahkan
+      const daftarSekolah = ["Sekolah 1", "Sekolah 2", "Sekolah 3"];
+
+      // Menambahkan setiap sekolah ke dalam elemen <select>
+      daftarSekolah.forEach((sekolah) => {
+        // Membuat elemen <option>
+        const option = document.createElement("option");
+        option.value = sekolah; // Mengatur nilai option
+        option.textContent = sekolah; // Menampilkan teks option
+
+        // Menambahkan elemen <option> ke dalam <select>
+        selectSekolah.appendChild(option);
+      });
+    </script>
+  </body>
+</html>

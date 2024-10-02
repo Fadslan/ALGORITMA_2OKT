@@ -1,0 +1,31 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estimasi Waktu Perjalanan</title>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1>Estimasi Waktu Perjalanan</h1>
+      <p>
+        Kita akan menghitung estimasi waktu dari Jarak dan Kecepatan <br />
+        Rumus: Waktu = Jarak / Kecepatan
+      </p>
+      <p id="kecepatan"></p>
+      <p id="jarak"></p>
+      <p>Waktu yang dibutuhkan:</p>
+      <p id="hasil"></p>
+    </div>
+  </body>
+  <script>
+    let kecepatan = 10;
+    let jarak = 10;
+    let waktu = jarak / kecepatan;
+
+    document.getElementById("hasil").textContent = waktu + " jam";
+    document.getElementById("kecepatan").textContent =
+      "Kecepatannya : " + kecepatan + " Km/h";
+    document.getElementById("jarak").textContent =
+      "Jaraknya : " + jarak + " Kilometer";
+  </script>
+</html>

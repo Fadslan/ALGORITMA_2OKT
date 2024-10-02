@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hitung Total Kelas di Kampus</title>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1>Hitung Total Kelas di Kampus</h1>
+      <p>
+        Masukkan jumlah mahasiswa dan kapasitas maksimal mahasiswa per kelas:
+      </p>
+      <form id="formKelas">
+        <label for="jumlahMahasiswa">Jumlah Mahasiswa:</label><br />
+        <input type="number" id="jumlahMahasiswa" required /><br /><br />
+        <label for="maksimalMahasiswa">Maksimal Mahasiswa per Kelas:</label
+        ><br />
+        <input type="number" id="maksimalMahasiswa" required /><br /><br />
+        <button type="submit">Hitung</button>
+      </form>
+      <p id="hasil"></p>
+    </div>
+
+    <script>
+      const form = document.getElementById("formKelas");
+      const hasil = document.getElementById("hasil");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault(); // Mencegah halaman reload
+
+        // Mengambil input dari pengguna
+        const jumlahMahasiswa =
+          document.getElementById("jumlahMahasiswa").value;
+        const maksimalMahasiswa =
+          document.getElementById("maksimalMahasiswa").value;
+
+        // Validasi input
+        if (jumlahMahasiswa > 0 && maksimalMahasiswa > 0) {
+          // Menghitung total kelas, pembulatan ke atas untuk memastikan tidak ada mahasiswa yang tersisa
+          const totalKelas = Math.ceil(jumlahMahasiswa / maksimalMahasiswa);
+          hasil.textContent = `Total ada ${totalKelas} kelas dalam kampus.`;
+        } else {
+          hasil.textContent = "Harap masukkan nilai yang valid.";
+        }
+      });
+    </script>
+  </body>
+</html>
